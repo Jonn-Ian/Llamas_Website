@@ -1,0 +1,129 @@
+/* calendar_style.css */
+
+.calendar-container {
+    background-color: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calendar-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for Sun-Sat */
+    grid-template-rows: auto repeat(5, 1fr); /* 1 row for weekdays, 5 rows for days */
+    gap: 5px;
+}
+
+.weekdays {
+    display: contents; /* Use grid from parent */
+    font-weight: bold;
+}
+
+.weekday {
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.days {
+    display: contents; /* Use grid from parent */
+}
+
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 5px;
+}
+
+.day:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 500px;
+    z-index: 1000;
+    overflow: auto;
+}
+
+.event-modal input,
+.event-modal textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.event-modal button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.event-modal .close-modal {
+    background-color: #f44336;
+}
+
+@media (max-width: 800px) {
+    .calendar-container {
+        width: 100%;
+    }
+
+    .calendar-header button {
+        padding: 8px;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .day {
+        padding: 10px;
+    }
+}
